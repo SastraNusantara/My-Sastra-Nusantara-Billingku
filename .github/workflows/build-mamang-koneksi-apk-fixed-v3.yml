@@ -49,15 +49,25 @@ jobs:
           packages: platform-tools
 
       - name: Install Android platform and build tools
+      
+      - name: Install Android platform and build tools
         shell: bash
         run: |
           set -euo pipefail
-         sdkmanager --licenses </dev/null || true
-         sdkmanager --install \
-        "platforms;android-35" \
-        "build-tools;35.0.0" \
-        "platform-tools"
+
+          # Terima lisensi SDK tanpa membuat pipefail gagal
+          set +o pipefail
+          yes | sdkmanager --licenses
+          set -o pipefail
+
+          # Instal komponen Android
+          sdkmanager --install \
+            "platforms;android-35" \
+            "build-tools;35.0.0" \
+            "platform-tools"
+
           sdkmanager --list_installed
+
           test -d "$ANDROID_HOME/platforms/android-35"
           test -x "$ANDROID_HOME/build-tools/35.0.0/aapt"
 
