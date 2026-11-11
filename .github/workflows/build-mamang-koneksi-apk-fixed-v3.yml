@@ -1,3 +1,4 @@
+
 name: Build Mamang Koneksi Billing APK
 
 on:
@@ -5,9 +6,9 @@ on:
   push:
     branches:
       - main
-paths:
-  - ".github/workflows/build-mamang-koneksi-apk-fixed-v3.yml"
-  - "MamangKoneksi_v21_Fix_Backup_Restore.html"
+    paths:
+      - ".github/workflows/build-mamang-koneksi-apk-fixed-v3.yml"
+      - "MamangKoneksi_v21_Fix_Backup_Restore.html"
 
 permissions:
   contents: read
