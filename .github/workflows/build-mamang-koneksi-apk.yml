@@ -34,7 +34,7 @@ jobs:
   with:
     packages: platform-tools
 
-- name: Install Android SDK platform and build tools
+    - name: Install Android SDK platform and build tools
   run: |
     yes | sdkmanager --licenses >/dev/null
     sdkmanager "platforms;android-35" "build-tools;35.0.0" "platform-tools"
