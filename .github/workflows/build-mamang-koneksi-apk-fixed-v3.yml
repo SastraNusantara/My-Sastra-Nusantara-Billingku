@@ -52,11 +52,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          yes | sdkmanager --licenses >/dev/null
-          sdkmanager --install \
-            "platforms;android-35" \
-            "build-tools;35.0.0" \
-            "platform-tools"
+         sdkmanager --licenses </dev/null || true
+         sdkmanager --install \
+        "platforms;android-35" \
+        "build-tools;35.0.0" \
+        "platform-tools"
           sdkmanager --list_installed
           test -d "$ANDROID_HOME/platforms/android-35"
           test -x "$ANDROID_HOME/build-tools/35.0.0/aapt"
