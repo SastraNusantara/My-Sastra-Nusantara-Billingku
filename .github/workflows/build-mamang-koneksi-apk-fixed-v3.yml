@@ -40,7 +40,6 @@ jobs:
         with:
           distribution: temurin
           java-version: "17"
-          cache: gradle
 
       # IMPORTANT: specify packages explicitly. If omitted, this action also
       # requests the obsolete SDK package named 'tools' and the job fails.
